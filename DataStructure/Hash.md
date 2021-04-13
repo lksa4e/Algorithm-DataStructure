@@ -70,7 +70,7 @@ def read_data(data):
         return None
 
 
-#### 6.2. Linear Probing 기법
+#### 3.2. Linear Probing 기법
 - **폐쇄 해슁 또는 Close Hashing 기법** 중 하나: 해쉬 테이블 저장공간 안에서 충돌 문제를 해결하는 기법
 - 충돌이 일어나면, 해당 hash address의 다음 address부터 맨 처음 나오는 빈공간에 저장하는 기법
   - 저장공간 활용도를 높이기 위한 기법
@@ -124,7 +124,7 @@ def read_data(data):
   hex_dig = hash_object.hexdigest() #16진수형태로 변환
   print (hex_dig)
 ```
-### 7. 시간 복잡도
+### 4. 시간 복잡도
 - 일반적인 경우(Collision이 없는 경우)는 O(1)
 - 최악의 경우(Collision이 모두 발생하는 경우)는 O(n)
 
