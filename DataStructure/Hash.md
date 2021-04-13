@@ -68,7 +68,8 @@ def read_data(data):
         return None
     else:
         return None
-```
+
+
 #### 6.2. Linear Probing 기법
 - **폐쇄 해슁 또는 Close Hashing 기법** 중 하나: 해쉬 테이블 저장공간 안에서 충돌 문제를 해결하는 기법
 - 충돌이 일어나면, 해당 hash address의 다음 address부터 맨 처음 나오는 빈공간에 저장하는 기법
@@ -76,13 +77,13 @@ def read_data(data):
   ```python
   hash_table = list([0 for i in range(8)])
 
-def get_key(data):
+  def get_key(data):
     return hash(data)
 
-def hash_function(key):
+  def hash_function(key):
     return key % 8
 
-def save_data(data, value):
+  def save_data(data, value):
     index_key = get_key(data) # 단순 hash값만 가지고는 여러개의 값중에서 내가 원하는 값을 찾을 수 없으므로 key/hash값을 둘 다 저장
     hash_address = hash_function(index_key)
     if hash_table[hash_address] != 0:
@@ -96,7 +97,7 @@ def save_data(data, value):
     else:  #처음부터 비어있다면
         hash_table[hash_address] = [index_key, value]
 
-def read_data(data):
+  def read_data(data):
     index_key = get_key(data)
     hash_address = hash_function(index_key)
     
@@ -109,7 +110,6 @@ def read_data(data):
     else:
         return None
 
-```
 
 ### 참고: 해쉬 함수와 키 생성 함수
 - 파이썬의 hash() 함수는 실행할 때마다, 값이 달라질 수 있음
@@ -124,3 +124,13 @@ def read_data(data):
   hex_dig = hash_object.hexdigest() #16진수형태로 변환
   print (hex_dig)
 ```
+### 7. 시간 복잡도
+- 일반적인 경우(Collision이 없는 경우)는 O(1)
+- 최악의 경우(Collision이 모두 발생하는 경우)는 O(n)
+
+> 해쉬 테이블의 경우, 일반적인 경우를 기대하고 만들기 때문에, 시간 복잡도는 O(1) 이라고 말할 수 있음
+
+### 검색에서 해쉬 테이블의 사용 예
+- n개의 배열에 데이터를 저장하고, 검색할 때 O(n)
+- n개의 데이터 저장공간을 가진 위의 해쉬 테이블에 데이터를 저장하고, 검색할 때 O(1)
+
