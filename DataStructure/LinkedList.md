@@ -15,6 +15,13 @@
 <img src="https://www.fun-coding.org/00_Images/linkedlist.png" />
 (출처: wikipedia, https://en.wikipedia.org/wiki/Linked_list)
 
+* 더블 링크드 리스트(Doubly linked list)
+  - 이중 연결 리스트라고도 함
+  - 장점: 양방향으로 연결되어 있어서 노드 탐색이 양쪽으로 모두 가능
+  <br>
+<img src="https://www.fun-coding.org/00_Images/doublelinkedlist.png" />
+(출처: wikipedia, https://en.wikipedia.org/wiki/Linked_list)
+
 ### 2. 링크드 리스트의 장단점 (전통 C언어에서의 배열과 링크드 리스트)
 * 장점
   - 미리 데이터 공간을 미리 할당하지 않아도 됨
