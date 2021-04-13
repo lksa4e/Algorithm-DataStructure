@@ -45,7 +45,13 @@
 
 <img src="https://www.fun-coding.org/00_Images/heap_remove.png" width = "300">
 
-### 4. 힙 구현
+### 4. 힙 (Heap) 시간 복잡도
+  - depth (트리의 높이) 를 h라고 표기한다면,
+  - n개의 노드를 가지는 heap 에 데이터 삽입 또는 삭제시, 최악의 경우 root 노드에서 leaf 노드까지 비교해야 하므로 $h = log_2{n} $ 에 가까우므로, 시간 복잡도는 $ O(log{n}) $ 
+     - 참고: 빅오 표기법에서 $log{n}$ 에서의 log의 밑은 10이 아니라, 2입니다.
+     - 한번 실행시마다, 50%의 실행할 수도 있는 명령을 제거한다는 의미. 즉 50%의 실행시간을 단축시킬 수 있다는 것을 의미함
+
+### 5. 힙 구현
 ### 힙과 배열
 - 일반적으로 힙 구현시 배열 자료구조를 활용함
 - 배열은 인덱스가 0번부터 시작하지만, 힙 구현의 편의를 위해, root 노드 인덱스 번호를 1로 지정하면, 구현이 좀더 수월함
@@ -53,13 +59,6 @@
   - 왼쪽 자식 노드 인덱스 번호 (left child node's index) = 부모 노드 인덱스 번호 (parent node's index) * 2
   - 오른쪽 자식 노드 인덱스 번호 (right child node's index) = 부모 노드 인덱스 번호 (parent node's index) * 2 + 1
 <img src="https://www.fun-coding.org/00_Images/heap_array.png" width=400>
-
-### 5. 힙 (Heap) 시간 복잡도
-  - depth (트리의 높이) 를 h라고 표기한다면,
-  - n개의 노드를 가지는 heap 에 데이터 삽입 또는 삭제시, 최악의 경우 root 노드에서 leaf 노드까지 비교해야 하므로 $h = log_2{n} $ 에 가까우므로, 시간 복잡도는 $ O(log{n}) $ 
-     - 참고: 빅오 표기법에서 $log{n}$ 에서의 log의 밑은 10이 아니라, 2입니다.
-     - 한번 실행시마다, 50%의 실행할 수도 있는 명령을 제거한다는 의미. 즉 50%의 실행시간을 단축시킬 수 있다는 것을 의미함
-
 
 ```python
 class Heap:
