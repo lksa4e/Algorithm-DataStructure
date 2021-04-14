@@ -11,8 +11,8 @@
   - n개의 리스트가 있는 경우 최대 n-1번의 로직을 적용한다.
   - 로직을 1번 적용할 때마다 가장 큰 숫자가 뒤에서부터 1개씩 결정된다.
   - 로직이 경우에 따라 일찍 끝날 수도 있다. 따라서 로직을 적용할 때 한 번도 데이터가 교환된 적이 없다면 이미 정렬된 상태이므로 더 이상 로직을 반복 적용할 필요가 없다.
-  - 
-<img src="https://www.fun-coding.org/00_Images/bubblealgo.png" />
+  <img src="https://www.fun-coding.org/00_Images/bubblealgo.png" />
+
 ```
 1. for num in range(len(data_list)) 반복
 2. swap = 0 (교환이 되었는지를 확인하는 변수를 두자)
@@ -22,6 +22,7 @@
 5.    swap += 1
 6. 반복문 안에서, if swap == 0 이면, break 끝
 ```
+
 ### 1.2. 알고리즘 분석
 * 반복문이 두 개 O($n^2$)
   - 최악의 경우, <font size=5em>$\frac { n * (n - 1)}{ 2 }$</font>
