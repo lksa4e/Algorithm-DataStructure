@@ -4,8 +4,7 @@
 ## 1. 버블 정렬 (bubble sort)
 * 두 인접한 데이터를 비교해서, 앞에 있는 데이터가 뒤에 있는 데이터보다 크면, 자리를 바꾸는 정렬 알고리즘
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif" width=600/>
-
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif" width=400/>
 > 출처: https://en.wikipedia.org/wiki/Bubble_sort
 
 ### 1.1. 알고리즘 구현
@@ -14,15 +13,15 @@
   - 로직이 경우에 따라 일찍 끝날 수도 있다. 따라서 로직을 적용할 때 한 번도 데이터가 교환된 적이 없다면 이미 정렬된 상태이므로 더 이상 로직을 반복 적용할 필요가 없다.
   - 
 <img src="https://www.fun-coding.org/00_Images/bubblealgo.png" />
-
+```
 1. for num in range(len(data_list)) 반복
 2. swap = 0 (교환이 되었는지를 확인하는 변수를 두자)
 2. 반복문 안에서, for index in range(len(data_list) - num - 1) n - 1번 반복해야 하므로
 3. 반복문안의 반복문 안에서, if data_list[index] > data_list[index + 1] 이면
-4.                data_list[index], data_list[index + 1] = data_list[index + 1], data_list[index]
-5.                swap += 1
+4.    data_list[index], data_list[index + 1] = data_list[index + 1], data_list[index]
+5.    swap += 1
 6. 반복문 안에서, if swap == 0 이면, break 끝
-
+```
 ### 1.2. 알고리즘 분석
 * 반복문이 두 개 O($n^2$)
   - 최악의 경우, <font size=5em>$\frac { n * (n - 1)}{ 2 }$</font>
@@ -54,13 +53,14 @@ def bubblesort(data):
 출처: https://en.wikipedia.org/wiki/Selection_sort
 
 ### 2.1. 알고리즘 구현
+```
 1. for stand in range(len(data_list) - 1) 로 반복
 2. lowest = stand 로 놓고,
 3. for num in range(stand, len(data_list)) stand 이후부터 반복
    - 내부 반복문 안에서 data_list[lowest] > data_list[num] 이면, 
      - lowest = num
 4. data_list[num], data_list[lowest] = data_list[lowest], data_list[num]   
-
+```
 
 ### 2.2. 알고리즘 분석
 * 반복문이 두 개 O($n^2$)
@@ -88,11 +88,13 @@ def selection_sort(data):
 > 출처: https://commons.wikimedia.org/wiki/File:Insertion-sort-example.gif
 
 ### 3.1. 알고리즘 구현
+```
 1. for stand in range(len(data_list)) 로 반복
 2. key = data_list[stand]
 3. for num in range(stand, 0, -1) 반복
    - 내부 반복문 안에서 data_list[stand] < data_list[num - 1] 이면, 
      - data_list[num - 1], data_list[num] = data_list[num], data_list[num - 1]   
+```
 
 ### 3.2. 알고리즘 분석
 * 반복문이 두 개 O($n^2$)
