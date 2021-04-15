@@ -50,7 +50,7 @@ def bfs(graph, start_node):
 
 > BFS 자료구조는 두 개의 큐를 활용하는데 반해, DFS 는 스택과 큐를 활용한다는 차이가 있음을 인지해야 함
  
-<img src="00_Images/dfsgraph.png" width=700>
+<img src="https://www.fun-coding.org/00_Images/dfsgraph.png" width=700>
 
 
 ### 4.1. 시간 복잡도
