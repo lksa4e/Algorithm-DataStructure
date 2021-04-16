@@ -10,7 +10,8 @@
 * 해쉬(Hash): 임의 값을 고정 길이로 변환하는 것
 * 해쉬 테이블(Hash Table): 키 값의 연산에 의해 직접 접근이 가능한 데이터 구조
 * 해싱 함수(Hashing Function): Key에 대해 산술 연산을 이용해 데이터 위치를 찾을 수 있는 함수
-* 해쉬 값(Hash Value) 또는 해쉬 주소(Hash Address): Key를 해싱 함수로 연산해서, 해쉬 값을 알아내고, 이를 기반으로 해쉬 테이블에서 해당 Key에 대한 데이터 위치를 일관성있게 찾을 수 있음
+* 해쉬 값(Hash Value) 또는 해쉬 주소(Hash Address): Key를 해싱 함수로 연산해서, 해쉬 값을 알아내고, 
+   이를 기반으로 해쉬 테이블에서 해당 Key에 대한 데이터 위치를 일관성있게 찾을 수 있음
 * 슬롯(Slot): 한 개의 데이터를 저장할 수 있는 공간
 * 저장할 데이터에 대해 Key를 추출할 수 있는 별도 함수도 존재할 수 있음
 <br>
@@ -36,7 +37,7 @@
 #### 3.1. Chaining 기법
 - **개방 해슁 또는 Open Hashing 기법** 중 하나: 해쉬 테이블 저장공간 외의 공간을 활용하는 기법
 - 충돌이 일어나면, 링크드 리스트라는 자료 구조를 사용해서, 링크드 리스트로 데이터를 추가로 뒤에 연결시켜서 저장하는 기법
-  ```python
+```python
   hash_table = list([0 for i in range(8)])
 
 def get_key(data):
@@ -68,7 +69,7 @@ def read_data(data):
         return None
     else:
         return None
-
+```
 
 #### 3.2. Linear Probing 기법
 - **폐쇄 해슁 또는 Close Hashing 기법** 중 하나: 해쉬 테이블 저장공간 안에서 충돌 문제를 해결하는 기법
