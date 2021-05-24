@@ -1,0 +1,114 @@
+#include <string>
+#include <vector>
+#include <iostream>
+
+using namespace std;
+vector<int> temp;
+
+void bubble(vector<int> v) {  //앞에서부터 거품마냥 뽀글뽀글 올라가는
+    for (int i = 0; i < v.size(); i++) {
+        bool flag = 0;
+        for (int j = i; j < v.size() - 1; j++) {
+            if (v[j] > v[j + 1]) {
+                swap(v[j], v[j + 1]);
+                flag = 1;
+            }
+        }
+        if (flag == 0) break;
+    }
+    cout << "\nbubble sort result" << '\n';
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << " ";
+    }
+}
+
+void selection(vector<int> v) { // 제일 작은걸 찾아서 앞쪽과 바꿔줌
+    for (int i = 0; i < v.size(); i++) {
+        int min = v[i];
+        int minidx = i;
+        for (int j = i; j < v.size(); j++) {
+            if (v[j] < min) {
+                min = v[j];
+                minidx = j;
+            }
+        }
+        swap(v[i], v[minidx]);
+    }
+    cout << "\nSelection sort result" << '\n';
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << " ";
+    }
+}
+
+void insertion(vector<int> v) {      // 두번째 인덱스부터 시작해서 값이 더 작으면 한칸씩 땡김
+    for (int i = 0; i < v.size() - 1; i++) {
+        for (int j = i + 1; j > 0; j--) {
+            if (v[j] < v[j - 1]) swap(v[j], v[j - 1]);
+        }
+    }
+
+    cout << "\nInsertion sort result" << '\n';
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << " ";
+    }
+}
+
+void merge(vector<int> &v, int left, int right) {
+    int mid = (left + right) / 2;
+    int L = left;  // 왼쪽을 채울 index
+    int R = mid + 1;  // 오른쪽을 채울 index
+    int k = left;   // 벡터에 넣는 index
+
+    while (L <= mid && R <= right) {
+        if (v[L] < v[R]) temp[k++] = v[L++];
+        else temp[k++] = v[R++];
+    }
+    if (L > mid) { // 오른쪽이 남았다
+        for (int i = R; i <= right; i++)
+            temp[k++] = v[i];
+    }
+    else {
+        for (int i = L; i <= mid; i++)
+            temp[k++] = v[i];
+    }
+    for (int i = left; i <= right; i++) {
+        v[i] = temp[i];
+    }
+}
+void mergesort(vector<int> &v, int left, int right) {
+    if (left == right) return;
+    int mid = (left + right)/2;
+    mergesort(v, left, mid);
+    mergesort(v, mid + 1, right);
+    merge(v, left, right);
+}
+void mergemerge(vector<int> v) {
+    mergesort(v, 0, v.size() - 1);
+    cout << "\nMerge sort result" << '\n';
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << " ";
+    }
+}
+
+void quick(vector<int> v) {
+
+}
+
+int main() {
+    vector<int> v;
+    v.push_back(1);
+    v.push_back(7);
+    v.push_back(5);
+    v.push_back(4);
+    v.push_back(9);
+    v.push_back(20);
+    v.push_back(17);
+    v.push_back(10);
+    temp.resize(v.size());
+    selection(v);
+    insertion(v);
+    bubble(v);
+    mergemerge(v);
+    
+    return 0;
+}
