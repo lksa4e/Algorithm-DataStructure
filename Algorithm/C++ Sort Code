@@ -90,8 +90,29 @@ void mergemerge(vector<int> v) {
     }
 }
 
-void quick(vector<int> v) {
+void quick(vector<int> &v, int left, int right) {
+    if (left >= right) return;
+    int pivot = v[(left + right) / 2];
+    int L = left;
+    int R = right;
 
+    while (L <= R) {
+        while (v[L] < pivot) L++;
+        while (v[R] > pivot) R--;
+        if (L <= R) {
+            swap(v[L], v[R]);
+            L++, R--;
+        }
+    }
+    quick(v, left, R);  //왼쪽부분 quick sort
+    quick(v, L, right);   // 오른쪽 부분 quick sort
+}
+void quickquick(vector<int> v) {
+    quick(v, 0, v.size() - 1);
+    cout << "\nQuick sort result" << '\n';
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << " ";
+    }
 }
 
 int main() {
@@ -109,6 +130,6 @@ int main() {
     insertion(v);
     bubble(v);
     mergemerge(v);
-    
+    quickquick(v);
     return 0;
 }
